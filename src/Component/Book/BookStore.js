@@ -1,49 +1,33 @@
-import React,{useEffect, useState} from 'react'
-import { BookList } from './BookList'
-import { Form } from './Form';
+import React, { createContext, useState } from "react";
+import { BookList } from "./BookList";
+import { Form } from "./Form";
 
-import { json } from 'react-router-dom';
-import { joinPaths } from '@remix-run/router';
-
-
-
- const BookStore = () => {
-  let [title,setTitle] = useState('')
-  let [author,setAuthor] = useState('')
-  let [category,setCategory] = useState('')
-  let [data,setData] = useState([])
+export const testprop = createContext();
+const BookStore = () => {
+  let [title, setTitle] = useState("");
+  let [author, setAuthor] = useState("");
+  let [category, setCategory] = useState("");
+  let [data, setData] = useState([]);
   let handleData = () => {
-    setData ((prevState) => {
-      return [...prevState,{title,author,category}]
+    setData((prevState) => {
+      return [...prevState, { title, author, category }];
+    });
+  };
 
-    })
-    
-}
-
-  
   return (
     <>
-    {data.map((e) => {
-      return(
-        <BookList  name = {e.title} author={e.author} category={e.category}/>
-      )
-    })}
-    
-        
-                 
-    <Form title={setTitle} author = {setAuthor} category={setCategory} handle={handleData} /> 
+      {data.map((e) => {
+        return (
+          <BookList name={e.title} author={e.author} category={e.category} />
+        );
+      })}
+    <testprop.Provider value={{setTitle, setAuthor, setCategory, handleData}}>
+      <Form />
+    </testprop.Provider>
     </>
-  )
-}
+  );
+};
 export default BookStore;
-
-
-
-
-
-
-
-
 
 // let [title,setTitle] = useState('');
 //   let [author,setAuthor] = useState('');
@@ -54,7 +38,7 @@ export default BookStore;
 //        if(storeData) {
 //          setManageData(JSON.parse(storeData))
 //        }
-      
+
 //      } ,[])
 //   const initialData = () => {
 //     let data = {
@@ -68,13 +52,13 @@ export default BookStore;
 //   return (
 //     <>
 //     {manageData.map((e) => {
-//     return(     
-//       <BookList name={e.title} title={e.author} category={e.category}/>     
-//     )   
-//   })} 
-//     <Form title={setTitle} author={setAuthor} category={setCategory} manage={initialData}/> 
+//     return(
+//       <BookList name={e.title} title={e.author} category={e.category}/>
+//     )
+//   })}
+//     <Form title={setTitle} author={setAuthor} category={setCategory} manage={initialData}/>
 //     </>
 //   )
 // }
-    
+
 //   })}

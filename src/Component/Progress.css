@@ -1,0 +1,31 @@
+.box .percent svg {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(-90deg);
+}
+
+.box .percent svg circle {
+  width: 70px;
+  height: 70px;
+  fill: none;
+  stroke-width: 5; /* Adjusted stroke width for the smaller circle */
+  stroke: #000;
+  transform: translate(
+    2.5px,
+    2.5px
+  ); /* Adjusted translation for the smaller circle */
+  stroke-dasharray: 219.911; /* Circumference of the circle: 2 * π * 35 */
+  stroke-dashoffset: 219.911; /* Initialize with the full circumference */
+  transition: stroke-dashoffset 0.5s ease; /* Add a smooth transition effect */
+}
+
+.box .percent svg circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: #f3f3f3;
+}
+
+.box .percent svg circle:nth-child(2) {
+  stroke-dashoffset: calc(219.911 - (219.911 * 68) / 100);
+  stroke: #03a9f4;
+}

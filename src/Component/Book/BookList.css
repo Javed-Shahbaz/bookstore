@@ -1,0 +1,139 @@
+.bookstore {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 5rem;
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin: 2rem 10%;
+  padding: 40px 3.5rem;
+}
+.store-info {
+  display: flex;
+  flex-direction: column;
+}
+.info h2 {
+  font-size: 1.7rem;
+  color: #8b8b8b;
+}
+.info h1 {
+  font-size: 3rem;
+}
+.info span {
+  font-size: 1.6rem;
+  color: #4386bf;
+}
+.buttons {
+  padding-top: 15px;
+  display: flex;
+  gap: 20px;
+}
+.buttons button {
+  border: none;
+  color: #4386bf;
+  font-size: 1.6rem;
+  background-color: #fff;
+}
+.report {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+}
+
+.report :nth-child(1) {
+  font-size: 4rem;
+}
+.report :nth-child(2) {
+  font-size: 1.8rem;
+  padding-top: 2px;
+  color: #8b8b8b;
+}
+.new-progress {
+  padding-right: 4rem;
+}
+.new-progress h4 {
+  font-size: 1.6rem;
+  color: #bec4d5;
+}
+.new-progress p {
+  font-size: 1.5rem;
+  padding-top: 5px;
+}
+.button {
+  margin-top: 1rem;
+  padding: 1rem 2.5rem;
+  background-color: #0290ff;
+  border: none;
+  border-radius: 5px;
+}
+.bar {
+  height: 60px;
+  border: 1px solid;
+  opacity: 0.2;
+}
+.main-store {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.report-details {
+  display: flex;
+  flex-direction: column;
+}
+.scale-in-hor-left {
+  animation: scale-in-hor-left 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes scale-in-hor-left {
+  0% {
+    transform: scaleX(0);
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+}
+@media (max-width: 910px) {
+  .bookstore {
+    display: grid;
+    grid-template-columns: auto;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    text-align: center;
+    padding: 75px 20px;
+    margin-top: 50px;
+  }
+  .buttons {
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+  .report {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 2rem;
+    padding-left: 1.7rem;
+  }
+  .main-store {
+    display: block;
+    text-align: center;
+    justify-content: center;
+  }
+  .bar {
+    height: 0;
+    margin-bottom: 40px;
+  }
+  .report {
+    padding-right: 3.5rem;
+  }
+  .new-progress {
+    padding-left: 4rem;
+  }
+}
